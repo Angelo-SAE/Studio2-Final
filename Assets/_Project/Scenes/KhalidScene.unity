@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -239,7 +239,6 @@ GameObject:
   - component: {fileID: 345040105}
   - component: {fileID: 345040104}
   - component: {fileID: 345040103}
-  - component: {fileID: 345040106}
   - component: {fileID: 345040107}
   m_Layer: 0
   m_Name: Main Camera
@@ -289,7 +288,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -322,21 +321,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 852963569}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &345040106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345040102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 827b1a6725a38494d86788fab06f7be3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 297768528}
-  offset: {x: 0, y: 0, z: 0}
-  sensitivity: 750
 --- !u!114 &345040107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 116169d3ed5d3844a9119e56df8a5366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 750
+  mouseSensitivity: 400
   playerBody: {fileID: 852963569}
 --- !u!43 &435599723
 Mesh:
