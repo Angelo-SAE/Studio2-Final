@@ -4,6 +4,5 @@ using UnityEngine;
 
 public interface IObserver
 {
-    void AddSelfToObservable();
     void PerformObserableAction(bool recievedVariable);
 }
