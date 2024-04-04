@@ -164,4 +164,6 @@ public class LEDNode : MonoBehaviour
         Color finalColor = baseColor * Mathf.LinearToGammaSpace(intensity);
         mat.SetColor("_EmissionColor", finalColor);
     }
+
+  
 }

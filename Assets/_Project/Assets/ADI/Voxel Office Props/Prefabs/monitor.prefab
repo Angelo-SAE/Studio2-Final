@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackScreenImage: {fileID: 4236651745244374748}
   whiteScreenImage: {fileID: 2954431234460720796}
+  ledObject: {fileID: 0}
 --- !u!1 &2954431234460720796
 GameObject:
   m_ObjectHideFlags: 0
