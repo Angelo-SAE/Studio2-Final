@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private InteractableObject interactableObject;
+    [SerializeField] private Mode mode;
 
     void Update()
     {
@@ -13,7 +14,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void CheckForInteract()
     {
-      if(Input.GetButtonDown("Interact") && interactableObject.interactableObject is not null)
+      if(Input.GetButtonDown("Interact") && interactableObject.interactableObject is not null && mode.mode3D)
       {
         Interact();
       }

@@ -2,34 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour, IObserver
+public class PlayerMovement : MonoBehaviour
 {
 
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
     [SerializeField] private float jumpFallForce;
-    [SerializeField] private ModeChanger observable;
+    [SerializeField] private Mode mode;
 
     Rigidbody rb;
     private bool isGrounded;
     public Camera cam;
     public bool isForcedDown;
-    private bool mode3D;
-
-    private void Awake()
-    {
-      AddSelfToObservable();
-    }
-
-    public void AddSelfToObservable()
-    {
-      observable.AddObserver(this);
-    }
-
-    public void PerformObserableAction(bool recievedVariable)
-    {
-      mode3D = recievedVariable;
-    }
 
     void Start()
     {
@@ -43,7 +27,7 @@ public class PlayerMovement : MonoBehaviour, IObserver
 
     void FixedUpdate()
     {
-      if(mode3D)
+      if(mode.mode3D)
       {
         MovePlayer();
       }
@@ -51,7 +35,7 @@ public class PlayerMovement : MonoBehaviour, IObserver
 
     private void CheckForJump()
     {
-      if (Input.GetButtonDown("Jump") && isGrounded)
+      if (Input.GetButtonDown("Jump") && isGrounded && mode.mode3D)
       {
         Jump();
       }
