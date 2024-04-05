@@ -8,8 +8,6 @@ public class MonitorController : MonoBehaviour
     public GameObject blackScreenImage;
     public GameObject whiteScreenImage;
 
-    public GameObject ledObject; // Reference to the LED object
-
     private bool isBlackScreen = true;
 
     // Events for when screens are turned on and off
@@ -44,14 +42,5 @@ public class MonitorController : MonoBehaviour
             ScreenTurnedOn?.Invoke();
         }
 
-        // Activate or deactivate the LED based on screen state
-        if (!isBlackScreen)
-        {
-            ledObject.SetActive(true); // Activate the LED when screen is turned on
-        }
-        else
-        {
-            ledObject.SetActive(false); // Deactivate the LED when screen is turned off
-        }
     }
 }

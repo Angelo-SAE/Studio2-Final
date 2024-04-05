@@ -32,6 +32,18 @@ public class ModeChanger : MonoBehaviour, IObservable
       }
     }
 
+    public void ChangeMode2()
+    {
+      if(mode3D)
+      {
+        mode3D = false;
+        NotifyObservers();
+      } else {
+        mode3D = true;
+        NotifyObservers();
+      }
+    }
+
     public void AddObserver(IObserver observer)
     {
       observers.Add(observer);
