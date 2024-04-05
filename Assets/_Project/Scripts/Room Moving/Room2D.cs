@@ -2,37 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Room2D : MonoBehaviour, IObserver
+public class Room2D : MonoBehaviour
 {
     [SerializeField] private int activeNumber;
     [SerializeField] private RoomSpots roomSpots;
     [SerializeField] private Current2D currentCamera;
-    [SerializeField] private ModeChanger observable;
     [SerializeField] private GameObject room;
     [SerializeField] private Collider2D col2D;
     [SerializeField] private SpriteRenderer spirte;
+    [SerializeField] private Mode mode;
     private bool isActive;
     private bool roomUpdate;
-    //private bool mode3D;
-
-    private void Awake()
-    {
-      AddSelfToObservable();
-    }
 
     private void Start()
     {
       SetDefaultRoom();
     }
 
-    public void AddSelfToObservable()
+    public void OnNotify()
     {
-      observable.AddObserver(this);
-    }
-
-    public void PerformObserableAction(bool recievedVariable)
-    {
-      //mode3D = recievedVariable;
       UpdateRoomPosition();
     }
 

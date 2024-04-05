@@ -2,31 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TabletSprite : MonoBehaviour, IObserver
+public class TabletSprite : MonoBehaviour
 {
-    [SerializeField] private ModeChanger observable;
     [SerializeField] private GameObject tabletSprite;
-    private bool mode3D;
+    [SerializeField] private Mode mode;
 
-    private void Awake()
+    public void OnNotify()
     {
-      AddSelfToObservable();
-    }
-
-    public void AddSelfToObservable()
-    {
-      observable.AddObserver(this);
-    }
-
-    public void PerformObserableAction(bool recievedVariable)
-    {
-      mode3D = recievedVariable;
       TurnOnOffSprite();
     }
 
     private void TurnOnOffSprite()
     {
-      if(mode3D)
+      if(mode.mode3D)
       {
         tabletSprite.SetActive(false);
       } else {

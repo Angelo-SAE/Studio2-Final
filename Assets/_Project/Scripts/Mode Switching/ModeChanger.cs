@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ModeChanger : MonoBehaviour, IObservable
+public class ModeChanger : MonoBehaviour
 {
-    [SerializeField] private bool mode3D;
-    private List<IObserver> observers = new List<IObserver>();
+    [SerializeField] private Publisher publisher;
+    [SerializeField] private Mode mode;
+    private bool isActive;
 
     private void Start()
     {
-      NotifyObservers();
+      publisher.NotifySubscribers();
     }
 
     private void Update()
@@ -21,27 +22,17 @@ public class ModeChanger : MonoBehaviour, IObservable
     {
       if(Input.GetButtonDown("ModeChange"))
       {
-        if(mode3D)
+        if(mode.mode3D)
         {
-          mode3D = false;
-          NotifyObservers();
-        } else {
-          mode3D = true;
-          NotifyObservers();
+          isActive = true;
+          mode.mode3D = false;
+          publisher.NotifySubscribers();
+        } else if(!mode.mode3D && isActive)
+        {
+          isActive = false;
+          mode.mode3D = true;
+          publisher.NotifySubscribers();
         }
-      }
-    }
-
-    public void AddObserver(IObserver observer)
-    {
-      observers.Add(observer);
-    }
-
-    public void NotifyObservers()
-    {
-      for(int a = observers.Count; a > 0; a--)
-      {
-        observers[a - 1].PerformObserableAction(mode3D);
       }
     }
 
