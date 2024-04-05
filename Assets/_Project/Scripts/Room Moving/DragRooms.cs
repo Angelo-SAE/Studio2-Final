@@ -2,36 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragRooms : MonoBehaviour, IObserver
+public class DragRooms : MonoBehaviour
 {
     [SerializeField] private int[] ArrayBoundsX;
     [SerializeField] private int[] ArrayBoundsY;
-    [SerializeField] private ModeChanger observable;
     [SerializeField] private Current2D currentCamera;
     [SerializeField] private RoomSpots roomSpots;
     [SerializeField] private Camera[] cameras;
+    [SerializeField] private Mode mode;
     private GameObject draggableObject;
     private Vector2 mousePosition, mouseClickPosition, origionalPosition;
-    private bool mode3D;
-
-    private void Awake()
-    {
-      AddSelfToObservable();
-    }
-
-    public void AddSelfToObservable()
-    {
-      observable.AddObserver(this);
-    }
-
-    public void PerformObserableAction(bool recievedVariable)
-    {
-      mode3D = recievedVariable;
-    }
 
     private void Update()
     {
-      if(!mode3D)
+      if(!mode.mode3D)
       {
         GetMousePosition();
         GetDraggableObject();

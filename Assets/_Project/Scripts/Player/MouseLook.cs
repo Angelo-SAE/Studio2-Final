@@ -2,32 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseLook : MonoBehaviour, IObserver
+public class MouseLook : MonoBehaviour
 {
     public float mouseSensitivity = 100f; // Sensitivity of the mouse movement
     public Transform playerBody; // Reference to the player body for rotation
-    [SerializeField] private ModeChanger observable;
     private float xRotation = 0f; // To keep track of camera rotation on the X axis
-    private bool mode3D;
-
-    private void Awake()
-    {
-      AddSelfToObservable();
-    }
-
-    public void AddSelfToObservable()
-    {
-      observable.AddObserver(this);
-    }
-
-    public void PerformObserableAction(bool recievedVariable)
-    {
-      mode3D = recievedVariable;
-    }
+    [SerializeField] private Mode mode;
 
     void Update()
     {
-      if(mode3D)
+      if(mode.mode3D)
       {
         RotateCamera();
       }

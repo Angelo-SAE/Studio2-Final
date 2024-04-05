@@ -884,10 +884,10 @@ MonoBehaviour:
   activeNumber: 0
   roomSpots: {fileID: 11400000, guid: 4b70f36f775e82e41abd3e00ff48d1c0, type: 2}
   currentCamera: {fileID: 11400000, guid: 963057fd7a3b7f149803a15c106521d9, type: 2}
-  observable: {fileID: 298008996}
   room: {fileID: 1438948096}
   col2D: {fileID: 106342793}
   spirte: {fileID: 1713496288}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!61 &106342793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1012,6 +1012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableObject: {fileID: 11400000, guid: ca4d339ddb6903f49b0a69bdae031f07, type: 2}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!114 &118417269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,7 +1027,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArrayBoundsX: 0200000003000000
   ArrayBoundsY: 0200000003000000
-  observable: {fileID: 298008996}
   currentCamera: {fileID: 11400000, guid: 963057fd7a3b7f149803a15c106521d9, type: 2}
   roomSpots: {fileID: 11400000, guid: 4b70f36f775e82e41abd3e00ff48d1c0, type: 2}
   cameras:
@@ -1034,6 +1034,7 @@ MonoBehaviour:
   - {fileID: 919243083}
   - {fileID: 1200255119}
   - {fileID: 1200255119}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!114 &118417270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,7 +1050,7 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 7
   jumpFallForce: 10
-  observable: {fileID: 298008996}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
   cam: {fileID: 1594140007}
   isForcedDown: 0
 --- !u!4 &118417271
@@ -11420,9 +11421,9 @@ GameObject:
   m_Component:
   - component: {fileID: 298008998}
   - component: {fileID: 298008996}
-  - component: {fileID: 298008997}
+  - component: {fileID: 298008999}
   m_Layer: 0
-  m_Name: ModeManager
+  m_Name: UseTablet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11440,20 +11441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221f9f92ecd98554791b778e70365ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode3D: 1
---- !u!114 &298008997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298008995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2e3a9e42f69d9946a6cf94af97f42f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentCamera: {fileID: 11400000, guid: 963057fd7a3b7f149803a15c106521d9, type: 2}
+  publisher: {fileID: 11400000, guid: f36e65ca6adee394ca9c3424fde4814e, type: 2}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!4 &298008998
 Transform:
   m_ObjectHideFlags: 0
@@ -11469,6 +11458,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &298008999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298008995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6901601919d68468d5dff9d6a86ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  publisher: {fileID: 11400000, guid: f36e65ca6adee394ca9c3424fde4814e, type: 2}
+  onNotify:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1573342677}
+        m_TargetAssemblyTypeName: TabletSprite, Assembly-CSharp
+        m_MethodName: OnNotify
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1513809339}
+        m_TargetAssemblyTypeName: ChangeCameras, Assembly-CSharp
+        m_MethodName: OnNotify
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1513809340}
+        m_TargetAssemblyTypeName: LockUnlockCursor, Assembly-CSharp
+        m_MethodName: OnNotify
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!43 &312950035
 Mesh:
   m_ObjectHideFlags: 0
@@ -24727,10 +24768,10 @@ MonoBehaviour:
   activeNumber: 1
   roomSpots: {fileID: 11400000, guid: 4b70f36f775e82e41abd3e00ff48d1c0, type: 2}
   currentCamera: {fileID: 11400000, guid: 963057fd7a3b7f149803a15c106521d9, type: 2}
-  observable: {fileID: 298008996}
   room: {fileID: 257094542}
   col2D: {fileID: 774317125}
   spirte: {fileID: 1344776353}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!61 &774317125
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25017,10 +25058,10 @@ MonoBehaviour:
   activeNumber: 1
   roomSpots: {fileID: 11400000, guid: 4b70f36f775e82e41abd3e00ff48d1c0, type: 2}
   currentCamera: {fileID: 11400000, guid: 963057fd7a3b7f149803a15c106521d9, type: 2}
-  observable: {fileID: 298008996}
   room: {fileID: 1014441702}
   col2D: {fileID: 810634087}
   spirte: {fileID: 2063346471}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!61 &810634087
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63293,14 +63334,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210637842}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: 1.111, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1419297925}
   - {fileID: 1515080082}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1466750982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1245466684
 Mesh:
@@ -63896,10 +63937,10 @@ MonoBehaviour:
   activeNumber: 1
   roomSpots: {fileID: 11400000, guid: 4b70f36f775e82e41abd3e00ff48d1c0, type: 2}
   currentCamera: {fileID: 11400000, guid: 963057fd7a3b7f149803a15c106521d9, type: 2}
-  observable: {fileID: 298008996}
   room: {fileID: 882999382}
   col2D: {fileID: 1254966397}
   spirte: {fileID: 1574928041}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!61 &1254966397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65236,11 +65277,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorNS: {fileID: 1427646845380243447, guid: e34ddb492298263459d5746b4d74be50, type: 3}
   doorEW: {fileID: 4332816284034590715, guid: 3dd2b78c17a822b4c9591a41298998f6, type: 3}
-  observable: {fileID: 298008996}
   roomSpots: {fileID: 11400000, guid: 4b70f36f775e82e41abd3e00ff48d1c0, type: 2}
   roomsX: 3
   roomsY: 3
   doorHolder: {fileID: 0}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!4 &1386416274
 Transform:
   m_ObjectHideFlags: 0
@@ -65647,6 +65688,8 @@ MonoBehaviour:
     dead. Adil will live.
   tmpText: {fileID: 8867377}
   noteCanvas: {fileID: 1515080081}
+  publisher: {fileID: 11400000, guid: 6498071467cfea24fae193019e8cd99f, type: 2}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!65 &1419297927
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -65794,10 +65837,10 @@ MonoBehaviour:
   activeNumber: 0
   roomSpots: {fileID: 11400000, guid: 4b70f36f775e82e41abd3e00ff48d1c0, type: 2}
   currentCamera: {fileID: 11400000, guid: 963057fd7a3b7f149803a15c106521d9, type: 2}
-  observable: {fileID: 298008996}
   room: {fileID: 830930894}
   col2D: {fileID: 1431416937}
   spirte: {fileID: 602163130}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!61 &1431416937
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -74842,6 +74885,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1466750980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1466750982}
+  - component: {fileID: 1466750981}
+  m_Layer: 0
+  m_Name: NotesHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1466750981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466750980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6901601919d68468d5dff9d6a86ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  publisher: {fileID: 11400000, guid: 6498071467cfea24fae193019e8cd99f, type: 2}
+  onNotify:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1513809340}
+        m_TargetAssemblyTypeName: LockUnlockCursor, Assembly-CSharp
+        m_MethodName: OnNotify
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &1466750982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466750980}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1210637843}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1474927567
 GameObject:
   m_ObjectHideFlags: 0
@@ -75375,6 +75479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1513809338}
   - component: {fileID: 1513809339}
+  - component: {fileID: 1513809340}
   m_Layer: 0
   m_Name: '2D Cameras '
   m_TagString: Untagged
@@ -75411,7 +75516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef24bf0f4e808c5408da5072a2634c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  observable: {fileID: 298008996}
   current2D: {fileID: 11400000, guid: 963057fd7a3b7f149803a15c106521d9, type: 2}
   camera3D: {fileID: 1594140004}
   cameras2D:
@@ -75419,6 +75523,20 @@ MonoBehaviour:
   - {fileID: 919243082}
   - {fileID: 1200255116}
   - {fileID: 1200255116}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
+--- !u!114 &1513809340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513809337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed63023e22ed8f40976e98e88a341eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!1 &1515080081
 GameObject:
   m_ObjectHideFlags: 0
@@ -75431,7 +75549,6 @@ GameObject:
   - component: {fileID: 1515080085}
   - component: {fileID: 1515080084}
   - component: {fileID: 1515080083}
-  - component: {fileID: 1515080086}
   m_Layer: 0
   m_Name: Note Canvas
   m_TagString: Untagged
@@ -75523,18 +75640,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1515080086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515080081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a73ad3460ebc9c4c98ce88b11bf8038, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1523961349
 GameObject:
   m_ObjectHideFlags: 0
@@ -75746,8 +75851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07465bf96337b8478290202a34df683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  observable: {fileID: 298008996}
   tabletSprite: {fileID: 1356692728}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!114 &1573342678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76037,9 +76142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 116169d3ed5d3844a9119e56df8a5366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 300
+  mouseSensitivity: 100
   playerBody: {fileID: 118417271}
-  observable: {fileID: 298008996}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!81 &1594140006
 AudioListener:
   m_ObjectHideFlags: 0
@@ -78231,10 +78336,10 @@ MonoBehaviour:
   activeNumber: 1
   roomSpots: {fileID: 11400000, guid: 4b70f36f775e82e41abd3e00ff48d1c0, type: 2}
   currentCamera: {fileID: 11400000, guid: 963057fd7a3b7f149803a15c106521d9, type: 2}
-  observable: {fileID: 298008996}
   room: {fileID: 886193429}
   col2D: {fileID: 1799593989}
   spirte: {fileID: 1374944009}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!61 &1799593989
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78530,10 +78635,10 @@ MonoBehaviour:
   activeNumber: 0
   roomSpots: {fileID: 11400000, guid: 4b70f36f775e82e41abd3e00ff48d1c0, type: 2}
   currentCamera: {fileID: 11400000, guid: 963057fd7a3b7f149803a15c106521d9, type: 2}
-  observable: {fileID: 298008996}
   room: {fileID: 518712722}
   col2D: {fileID: 1828823777}
   spirte: {fileID: 1297076619}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
 --- !u!61 &1828823777
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80223,6 +80328,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2063644685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2063644687}
+  - component: {fileID: 2063644686}
+  m_Layer: 0
+  m_Name: SetDefaultScriptableObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2063644686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063644685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e3a9e42f69d9946a6cf94af97f42f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCamera: {fileID: 11400000, guid: 963057fd7a3b7f149803a15c106521d9, type: 2}
+  mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
+--- !u!4 &2063644687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063644685}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2068511092
 GameObject:
   m_ObjectHideFlags: 0
@@ -81597,17 +81748,18 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 178328826}
+  - {fileID: 2063644687}
+  - {fileID: 298008998}
   - {fileID: 1573342681}
   - {fileID: 1461092335}
-  - {fileID: 298008998}
   - {fileID: 1513809338}
   - {fileID: 118417271}
   - {fileID: 1386416274}
   - {fileID: 561770681}
-  - {fileID: 178328826}
   - {fileID: 1715318345}
   - {fileID: 1475921723}
   - {fileID: 1003605729}
   - {fileID: 233521778}
   - {fileID: 1188747589}
-  - {fileID: 1210637843}
+  - {fileID: 1466750982}

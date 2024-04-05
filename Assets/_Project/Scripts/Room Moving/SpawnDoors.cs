@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnDoors : MonoBehaviour, IObserver
+public class SpawnDoors : MonoBehaviour
 {
     [SerializeField] private GameObject doorNS, doorEW;
-    [SerializeField] private ModeChanger observable;
     [SerializeField] private RoomSpots roomSpots;
     [SerializeField] private int roomsX, roomsY;
     [SerializeField] private GameObject doorHolder;
+    [SerializeField] private Mode mode;
     private bool[,] doorSpawnedNS;
     private bool[,] doorSpawnedEW;
     private List<int>[,] doorSpots;
@@ -17,17 +17,11 @@ public class SpawnDoors : MonoBehaviour, IObserver
     private void Awake()
     {
       doorSpots = new List<int>[roomsX, roomsY];
-      AddSelfToObservable();
     }
 
-    public void AddSelfToObservable()
+    public void OnNotify()
     {
-      observable.AddObserver(this);
-    }
-
-    public void PerformObserableAction(bool recievedVariable)
-    {
-      if(recievedVariable && ok > 0)
+      if(mode.mode3D && ok > 0)
       {
         StoreDoorSpots();
         CheckRooms();
