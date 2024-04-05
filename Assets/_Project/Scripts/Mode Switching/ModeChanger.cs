@@ -8,7 +8,6 @@ public class ModeChanger : MonoBehaviour
     [SerializeField] private Mode mode;
     private bool isActive;
 
-
     private void Start()
     {
       publisher.NotifySubscribers();
