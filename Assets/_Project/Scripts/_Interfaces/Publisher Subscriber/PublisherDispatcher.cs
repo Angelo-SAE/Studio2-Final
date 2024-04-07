@@ -8,7 +8,7 @@ public class PublisherDispatcher : MonoBehaviour, ISubscriber
     [SerializeField] private Publisher publisher;
     [SerializeField] private UnityEvent onNotify;
 
-    private void Start()
+    private void Awake()
     {
       publisher.AddSubscriber(this);
     }

@@ -153,6 +153,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6158775214219479975}
   canOpen: 1
+  needsKey: 0
+  NS: 0
+  EW: 1
+  playerPosition: {fileID: 11400000, guid: b094ae059720bda47b2af899530b6d95, type: 2}
+  doorKey: {fileID: 0}
 --- !u!95 &6158775214219479975
 Animator:
   serializedVersion: 5

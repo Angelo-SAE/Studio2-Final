@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 7f;
     [SerializeField] private float jumpFallForce;
     [SerializeField] private Mode mode;
+    [SerializeField] private PlayerPosition playerPosition;
 
     Rigidbody rb;
     private bool isGrounded;
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
       CheckForJump();
+      SetPlayerPosition();
     }
 
     void FixedUpdate()
@@ -39,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
       {
         Jump();
       }
+    }
+
+    private void SetPlayerPosition()
+    {
+      playerPosition.position = transform.position;
     }
 
     void MovePlayer()
