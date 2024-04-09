@@ -6,6 +6,10 @@ public class DoorInteract : Interactable
 {
     [SerializeField] private Animator animator;
     [SerializeField] private bool canOpen;
+    [SerializeField] private bool needsKey;
+    [SerializeField] private bool NS, EW;
+    [SerializeField] private PlayerPosition playerPosition;
+    [SerializeField] private GameObject doorKey;
     private bool open;
 
     public bool CanOpen
@@ -15,14 +19,70 @@ public class DoorInteract : Interactable
 
     public override void Interact()
     {
-      if(canOpen && !open)
+      if(!CheckForKey() && canOpen)
       {
-        animator.SetBool("DoorOpen", true);
-        open = true;
-      } else if(canOpen && open)
-      {
-        animator.SetBool("DoorOpen", false);
-        open = false;
+        CheckOpenDirection();
       }
+    }
+
+    private bool CheckForKey()
+    {
+      if(needsKey)
+      {
+        if(doorKey.active == false)
+        {
+          needsKey = false;
+          return false;
+        }
+      } else {
+        return false;
+      }
+      return true;
+    }
+
+    private void CheckOpenDirection()
+    {
+      animator.SetBool("DoorOpenN", false);
+      animator.SetBool("DoorOpenS", false);
+      animator.SetBool("DoorOpenE", false);
+      animator.SetBool("DoorOpenW", false);
+      if(NS)
+      {
+        if(playerPosition.position.z < transform.position.z)
+        {
+          animator.SetBool("DoorOpenN", true);
+          OpenCloseDoor();
+        } else {
+          animator.SetBool("DoorOpenS", true);
+          OpenCloseDoor();
+        }
+      } else if(EW)
+      {
+        if(playerPosition.position.x < transform.position.x)
+        {
+          animator.SetBool("DoorOpenE", true);
+          OpenCloseDoor();
+        } else {
+          animator.SetBool("DoorOpenW", true);
+          OpenCloseDoor();
+        }
+      }
+    }
+
+    private void OpenCloseDoor()
+    {
+      if(!open)
+      {
+        PlayAnimation("DoorOpen", true);
+      } else if(open)
+      {
+        PlayAnimation("DoorOpen", false);
+      }
+    }
+
+    private void PlayAnimation(string animationBool, bool state)
+    {
+      animator.SetBool(animationBool, state);
+      open = state;
     }
 }

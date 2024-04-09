@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpawnDoors : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SpawnDoors : MonoBehaviour
     [SerializeField] private int roomsX, roomsY;
     [SerializeField] private GameObject doorHolder;
     [SerializeField] private Mode mode;
+    [SerializeField] private UnityEvent onNotify;
     private bool[,] doorSpawnedNS;
     private bool[,] doorSpawnedEW;
     private List<int>[,] doorSpots;
@@ -25,6 +27,7 @@ public class SpawnDoors : MonoBehaviour
       {
         StoreDoorSpots();
         CheckRooms();
+        onNotify.Invoke();
       } else {
         ok++;
       }
