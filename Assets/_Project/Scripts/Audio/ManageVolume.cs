@@ -14,6 +14,7 @@ public class ManageVolume : MonoBehaviour
     private void Awake()
     {
       volumeSlider.value = volume.value;
+      audio.SetFloat(audioMixer, volume.value);
     }
 
     public void OnNotify()
