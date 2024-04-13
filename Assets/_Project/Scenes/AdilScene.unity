@@ -14182,9 +14182,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbcd5c5c43951a94d9a0a209d7a830d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactLayers:
+  interactLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   rayPosition: {fileID: 1382541974}
   rayLength: 1.3
   interactableObject: {fileID: 11400000, guid: ca4d339ddb6903f49b0a69bdae031f07, type: 2}
@@ -30918,7 +30918,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4687098935661728201}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1005764676 stripped
 GameObject:
@@ -71924,7 +71924,6 @@ Transform:
   - {fileID: 850630979}
   - {fileID: 1736895391}
   - {fileID: 1793302789}
-  - {fileID: 992229513}
   - {fileID: 107290070}
   - {fileID: 226625386}
   - {fileID: 2090957758}
@@ -85379,4 +85378,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 441823097}
+  - {fileID: 992229513}
   - {fileID: 4687098935661728201}
