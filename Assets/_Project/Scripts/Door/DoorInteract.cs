@@ -29,7 +29,7 @@ public class DoorInteract : Interactable
     {
       if(needsKey)
       {
-        if(doorKey.active == false)
+        if(doorKey.activeInHierarchy == false)
         {
           needsKey = false;
           return false;

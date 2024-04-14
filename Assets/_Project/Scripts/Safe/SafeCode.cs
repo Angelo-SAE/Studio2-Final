@@ -7,6 +7,7 @@ public class SafeCode : MonoBehaviour
 {
     [SerializeField] private List<int> safeCode;
     [SerializeField] private TMP_Text codeText;
+    [SerializeField] private Animator safeDoorAnimator;
     private bool unLocked;
     private List<int> currentCode;
 
@@ -26,6 +27,7 @@ public class SafeCode : MonoBehaviour
           if(unLocked)
           {
             codeText.text = "Unlocked";
+            safeDoorAnimator.SetBool("SafeOpen", true);
           } else {
             codeText.text = "Incorrect";
             currentCode = new List<int>();

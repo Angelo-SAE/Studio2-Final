@@ -7,19 +7,19 @@ using UnityEngine.Audio;
 public class ManageVolume : MonoBehaviour
 {
     [SerializeField] private Slider volumeSlider;
-    [SerializeField] private AudioMixer audio;
+    [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private FloatObject volume;
-    [SerializeField] private string audioMixer;
+    [SerializeField] private string audioMixerName;
 
     private void Awake()
     {
       volumeSlider.value = volume.value;
-      audio.SetFloat(audioMixer, volume.value);
+      audioMixer.SetFloat(audioMixerName, volume.value);
     }
 
     public void OnNotify()
     {
       volume.value = volumeSlider.value;
-      audio.SetFloat(audioMixer, volumeSlider.value);
+      audioMixer.SetFloat(audioMixerName, volumeSlider.value);
     }
 }

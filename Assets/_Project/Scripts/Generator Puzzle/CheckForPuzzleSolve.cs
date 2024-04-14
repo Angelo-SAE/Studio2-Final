@@ -38,46 +38,50 @@ public class CheckForPuzzleSolve : MonoBehaviour
 
     private Vector2Int CheckAndContinuePowerDirection(Vector2Int currentPosition)
     {
-      if(grid.pieceGrid[currentPosition.x, currentPosition.y].N && currentPosition.y < gridY && lastDirection != 0)
+      try
       {
-        if(grid.pieceGrid[currentPosition.x, currentPosition.y + 1].S)
+        if(grid.pieceGrid[currentPosition.x, currentPosition.y].N && currentPosition.y < gridY && lastDirection != 0)
         {
-          lastDirection = 2;
-          return new Vector2Int(currentPosition.x, currentPosition.y + 1);
-        } else {
-          powered = false;
+          if(grid.pieceGrid[currentPosition.x, currentPosition.y + 1].S)
+          {
+            lastDirection = 2;
+            return new Vector2Int(currentPosition.x, currentPosition.y + 1);
+          } else {
+            powered = false;
+          }
+        }
+        if(grid.pieceGrid[currentPosition.x, currentPosition.y].E && currentPosition.x < gridX && lastDirection != 1)
+        {
+          if(grid.pieceGrid[currentPosition.x + 1, currentPosition.y].W)
+          {
+            lastDirection = 3;
+            return new Vector2Int(currentPosition.x + 1, currentPosition.y);
+          } else {
+            powered = false;
+          }
+        }
+        if(grid.pieceGrid[currentPosition.x, currentPosition.y].S && currentPosition.y > 0 && lastDirection != 2)
+        {
+          if(grid.pieceGrid[currentPosition.x, currentPosition.y - 1].N)
+          {
+            lastDirection = 0;
+            return new Vector2Int(currentPosition.x, currentPosition.y - 1);
+          } else {
+            powered = false;
+          }
+        }
+        if(grid.pieceGrid[currentPosition.x, currentPosition.y].W && currentPosition.x > 0 && lastDirection != 3)
+        {
+          if(grid.pieceGrid[currentPosition.x - 1, currentPosition.y].E)
+          {
+            lastDirection = 1;
+            return new Vector2Int(currentPosition.x - 1, currentPosition.y);
+          } else {
+            powered = false;
+          }
         }
       }
-      if(grid.pieceGrid[currentPosition.x, currentPosition.y].E && currentPosition.x < gridX && lastDirection != 1)
-      {
-        if(grid.pieceGrid[currentPosition.x + 1, currentPosition.y].W)
-        {
-          lastDirection = 3;
-          return new Vector2Int(currentPosition.x + 1, currentPosition.y);
-        } else {
-          powered = false;
-        }
-      }
-      if(grid.pieceGrid[currentPosition.x, currentPosition.y].S && currentPosition.y > 0 && lastDirection != 2)
-      {
-        if(grid.pieceGrid[currentPosition.x, currentPosition.y - 1].N)
-        {
-          lastDirection = 0;
-          return new Vector2Int(currentPosition.x, currentPosition.y - 1);
-        } else {
-          powered = false;
-        }
-      }
-      if(grid.pieceGrid[currentPosition.x, currentPosition.y].W && currentPosition.x > 0 && lastDirection != 3)
-      {
-        if(grid.pieceGrid[currentPosition.x - 1, currentPosition.y].E)
-        {
-          lastDirection = 1;
-          return new Vector2Int(currentPosition.x - 1, currentPosition.y);
-        } else {
-          powered = false;
-        }
-      }
+      catch{}
       powered = false;
       return currentPosition;
     }

@@ -24,7 +24,7 @@ public class GeneratorPiece : MonoBehaviour
 
     public void SetColorBack()
     {
-      image.color = Color.black;
+      image.color = Color.white;
     }
 
     public void SetColorPowered()

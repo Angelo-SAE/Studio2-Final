@@ -11,11 +11,6 @@ public class Note : Interactable
     [SerializeField] private Publisher publisher;
     [SerializeField] private Mode mode;
 
-    private void Start()
-    {
-      tmpText.text = noteText;
-    }
-
     public override void Interact()
     {
       DisplayNote();
@@ -23,6 +18,7 @@ public class Note : Interactable
 
     private void DisplayNote()
     {
+      SetNoteText();
       mode.mode3D = false;
       noteCanvas.SetActive(true);
       publisher.NotifySubscribers();
@@ -33,5 +29,10 @@ public class Note : Interactable
       mode.mode3D = true;
       noteCanvas.SetActive(false);
       publisher.NotifySubscribers();
+    }
+
+    private void SetNoteText()
+    {
+      tmpText.text = noteText;
     }
 }
