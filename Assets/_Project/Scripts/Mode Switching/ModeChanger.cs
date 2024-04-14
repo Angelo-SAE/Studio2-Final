@@ -6,6 +6,7 @@ public class ModeChanger : MonoBehaviour
 {
     [SerializeField] private Publisher publisher;
     [SerializeField] private Mode mode;
+    [SerializeField] private BoolObject hasTablet;
     private bool isActive;
 
     private void Start()
@@ -15,7 +16,10 @@ public class ModeChanger : MonoBehaviour
 
     private void Update()
     {
-      ChangeMode();
+      if(hasTablet.value)
+      {
+        ChangeMode();
+      }
     }
 
     private void ChangeMode()

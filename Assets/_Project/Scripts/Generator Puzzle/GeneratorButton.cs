@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class GeneratorButton : Interactable
 {
+    [SerializeField] private BoolObject isSolved;
     [SerializeField] private GeneratorPuzzle puzzleScript;
     [SerializeField] private bool up, down;
     [SerializeField] private int columnNumber;
 
     public override void Interact()
     {
-      if(up)
+      if(!isSolved.value)
       {
-        puzzleScript.MoveUp(columnNumber);
-      }
-      if(down)
-      {
-        puzzleScript.MoveDown(columnNumber);
-      }
+        if(up)
+        {
+          puzzleScript.MoveUp(columnNumber);
+        }
+        if(down)
+        {
+          puzzleScript.MoveDown(columnNumber);
+        }
+      }  
     }
 }

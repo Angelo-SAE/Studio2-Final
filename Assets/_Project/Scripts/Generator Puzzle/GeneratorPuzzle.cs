@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GeneratorPuzzle : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class GeneratorPuzzle : MonoBehaviour
     [SerializeField] private CheckForPuzzleSolve check;
     [SerializeField] private Renderer endRenderer;
     [SerializeField] private Material solvedMaterial, unSolvedMaterial;
-    private bool solved;
+    [SerializeField] private BoolObject isSolved;
+    [SerializeField] private UnityEvent onSolved;
 
     public void MoveUp(int xPos)
     {
@@ -46,15 +48,16 @@ public class GeneratorPuzzle : MonoBehaviour
           grid.pieceGrid[a,b].SetColorBack();
         }
       }
-      solved = check.CheckForSolved();
+      isSolved.value = check.CheckForSolved();
       DisplaySolved();
     }
 
     private void DisplaySolved()
     {
-      if(solved)
+      if(isSolved.value)
       {
         endRenderer.material = solvedMaterial;
+        onSolved.Invoke();
       } else {
         endRenderer.material = unSolvedMaterial;
       }
