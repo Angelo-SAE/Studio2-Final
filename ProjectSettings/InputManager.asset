@@ -154,7 +154,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: r
+    positiveButton: tab
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -167,10 +167,10 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Interact
-    descriptiveName: 
+    descriptiveName: e
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: mouse 0
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
