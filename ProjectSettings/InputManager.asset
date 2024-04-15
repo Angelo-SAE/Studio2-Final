@@ -167,9 +167,9 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Interact
-    descriptiveName: e
+    descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: e
     positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
