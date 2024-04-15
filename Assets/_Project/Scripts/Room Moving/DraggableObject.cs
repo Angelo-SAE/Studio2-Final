@@ -8,6 +8,7 @@ public class DraggableObject : MonoBehaviour
     public bool CanDrag
     {
       get => canDrag;
+      set => canDrag = value;
     }
 
     private void Start()

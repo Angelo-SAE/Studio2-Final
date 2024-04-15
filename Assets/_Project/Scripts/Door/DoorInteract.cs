@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DoorInteract : Interactable
 {
+    [SerializeField] private GameObject doorLockedAudio;
     [SerializeField] private Animator animator;
     [SerializeField] private bool canOpen;
     [SerializeField] private bool needsKey;
@@ -37,6 +38,7 @@ public class DoorInteract : Interactable
       } else {
         return false;
       }
+      Instantiate(doorLockedAudio, transform.position, transform.rotation, transform);
       return true;
     }
 

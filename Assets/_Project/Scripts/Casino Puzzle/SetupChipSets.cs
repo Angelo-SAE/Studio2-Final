@@ -62,13 +62,10 @@ public class SetupChipSets : MonoBehaviour
       {
         case(0):
         return redChipSpawn;
-        break;
         case(1):
         return blueChipSpawn;
-        break;
         case(2):
         return greenChipSpawn;
-        break;
       }
       return null;
     }
@@ -79,22 +76,16 @@ public class SetupChipSets : MonoBehaviour
       {
         case(0):
         return sets[currentSet].sectionOne;
-        break;
         case(1):
         return sets[currentSet].sectionTwo;
-        break;
         case(2):
         return sets[currentSet].sectionThree;
-        break;
         case(3):
         return sets[currentSet].sectionFour;
-        break;
         case(4):
         return sets[currentSet].sectionFive;
-        break;
         case(5):
         return sets[currentSet].sectionSix;
-        break;
       }
       return null;
     }

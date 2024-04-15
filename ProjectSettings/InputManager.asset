@@ -154,7 +154,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: r
+    positiveButton: tab
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -169,8 +169,8 @@ InputManager:
     m_Name: Interact
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: mouse 0
+    negativeButton: e
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
