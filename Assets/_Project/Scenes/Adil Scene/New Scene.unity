@@ -491,6 +491,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4336165646881815095, guid: df786a03dad63994c83da26f922ed0dc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 188ba375fe4b9e04d98e5b6b44cf85d9, type: 2}
     - target: {fileID: 919132149155446097, guid: df786a03dad63994c83da26f922ed0dc, type: 3}
       propertyPath: m_Name
       value: MetalDetector(model) (2)
@@ -1017,6 +1021,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4336165646881815095, guid: df786a03dad63994c83da26f922ed0dc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 188ba375fe4b9e04d98e5b6b44cf85d9, type: 2}
     - target: {fileID: 919132149155446097, guid: df786a03dad63994c83da26f922ed0dc, type: 3}
       propertyPath: m_Name
       value: MetalDetector(model) (3)
@@ -1302,6 +1310,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4336165646881815095, guid: df786a03dad63994c83da26f922ed0dc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 188ba375fe4b9e04d98e5b6b44cf85d9, type: 2}
     - target: {fileID: 919132149155446097, guid: df786a03dad63994c83da26f922ed0dc, type: 3}
       propertyPath: m_Name
       value: MetalDetector(model)
@@ -1376,6 +1388,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4336165646881815095, guid: df786a03dad63994c83da26f922ed0dc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 188ba375fe4b9e04d98e5b6b44cf85d9, type: 2}
     - target: {fileID: 919132149155446097, guid: df786a03dad63994c83da26f922ed0dc, type: 3}
       propertyPath: m_Name
       value: MetalDetector(model) (1)
