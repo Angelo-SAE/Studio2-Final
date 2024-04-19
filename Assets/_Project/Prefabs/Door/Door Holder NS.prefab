@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorLockedAudio: {fileID: 7293438213492159324, guid: ca7c878643e5ec04ca1bbd9dac4435b8, type: 3}
   animator: {fileID: 5358102110003397351}
   canOpen: 1
   needsKey: 0
