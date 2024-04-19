@@ -9,12 +9,10 @@ public class PickupObject : Interactable
 
     public override void Interact()
     {
-      Debug.Log(heldObject.value);
       if(heldObject.value is null)
       {
         PickUpCurrentObject();
       }
-      Debug.Log(heldObject.value);
     }
 
     private void PickUpCurrentObject()
@@ -22,5 +20,6 @@ public class PickupObject : Interactable
       heldObject.value = this.gameObject;
       gameObject.transform.SetParent(holdLocation.transform);
       transform.localPosition = Vector3.zero;
+      transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 }
