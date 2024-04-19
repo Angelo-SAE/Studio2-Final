@@ -24,7 +24,7 @@ public class ModeChanger : MonoBehaviour
 
     private void ChangeMode()
     {
-      if(Input.GetButtonDown("ModeChange"))
+      if(Input.GetButtonDown("Open Tablet"))
       {
         if(mode.mode3D)
         {
