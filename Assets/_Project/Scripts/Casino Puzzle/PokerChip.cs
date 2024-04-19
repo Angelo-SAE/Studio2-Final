@@ -7,12 +7,20 @@ public class PokerChip : Interactable
     [SerializeField] private int section, chip;
     [SerializeField] private PokerChipSet currentChipSet;
     [SerializeField] private SetupChipSets chipSpawner;
+    [SerializeField] private BoolObject isSwapping;
 
     public override void Interact()
     {
+      if(!isSwapping.value)
+      {
+        AddSelectedChip();
+      }
+    }
+
+    private void AddSelectedChip()
+    {
       if(CheckIfCurrentSectionIsMax(currentChipSet.chipSet[section][chip]))
       {
-        currentChipSet.chipSet[section][chip]++;
         switch(chip)
         {
           case(0):
@@ -26,6 +34,7 @@ public class PokerChip : Interactable
           break;
         }
         chipSpawner.SpawnChip(section, chip, currentChipSet.chipSet[section][chip]);
+        currentChipSet.chipSet[section][chip]++;
       }
     }
 

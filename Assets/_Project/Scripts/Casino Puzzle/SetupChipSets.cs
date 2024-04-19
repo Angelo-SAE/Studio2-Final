@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class SetupChipSets : MonoBehaviour
 {
@@ -10,19 +11,20 @@ public class SetupChipSets : MonoBehaviour
     [SerializeField] private PokerChipSet currentChipSet;
     [SerializeField] private PokerChipSet[] sets;
     [SerializeField] private GameObjectss[] chips;
-    [SerializeField] private UnityEvent updateScoreBoard;
+    [SerializeField] private BoolObject isSwapping;
+    [SerializeField] private UnityEvent updateScoreBoard, disableScoreBoard, enableScoreBoard, disableTextBoard, enableTextBoard, disableStartButton, enableDataShard;
+    [SerializeField] private Animator swapperAnimation;
+    [SerializeField] private TMP_Text displayText;
+    private bool started;
     private GameObject chipsHolder;
     private bool previousSet;
 
-    private void Update()
+    public void OnNotify()
     {
-      if(Input.GetKeyDown(KeyCode.J))
-      {
-        OnNotify();
-      }
+      StartCoroutine(SpawnNextSet());
     }
 
-    public void OnNotify()
+    private void SpawnSet()
     {
       if(previousSet)
       {
@@ -85,7 +87,7 @@ public class SetupChipSets : MonoBehaviour
       updateScoreBoard.Invoke();
       if(CheckForSolved())
       {
-        Debug.Log("Solved");
+        StartCoroutine(SpawnNextSet());
       }
     }
 
@@ -136,6 +138,51 @@ public class SetupChipSets : MonoBehaviour
         currentChipSet.chipSet[section][a] = 0;
       }
       updateScoreBoard.Invoke();
+    }
+
+    private IEnumerator SpawnNextSet()
+    {
+      isSwapping.value = true;
+      if(started)
+      {
+        currentSet++;
+        if(currentSet < sets.Length)
+        {
+          swapperAnimation.SetTrigger("Swap");
+          displayText.text = "Loading Next Set";
+          disableScoreBoard.Invoke();
+          enableTextBoard.Invoke();
+          yield return new WaitForSeconds(2f);
+          SpawnSet();
+          yield return new WaitForSeconds(2f);
+          disableTextBoard.Invoke();
+          enableScoreBoard.Invoke();
+          isSwapping.value = false;
+        } else {
+          swapperAnimation.SetTrigger("Swap");
+          displayText.text = "!!!You Won!!!";
+          disableScoreBoard.Invoke();
+          enableTextBoard.Invoke();
+          yield return new WaitForSeconds(2f);
+          FlushCurrentChipSet();
+          enableDataShard.Invoke();
+          yield return new WaitForSeconds(2f);
+          displayText.text = "Take It";
+        }
+      } else {
+        swapperAnimation.SetTrigger("Swap");
+        displayText.text = "Loading First Set";
+        disableScoreBoard.Invoke();
+        enableTextBoard.Invoke();
+        yield return new WaitForSeconds(2f);
+        disableStartButton.Invoke();
+        SpawnSet();
+        yield return new WaitForSeconds(2f);
+        disableTextBoard.Invoke();
+        enableScoreBoard.Invoke();
+        started = true;
+        isSwapping.value = false;
+      }
     }
 }
 

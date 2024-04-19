@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42362d567704fb44fb4ecc5b68dbbad7, type: 3}
   m_Name: Current2DCamera
   m_EditorClassIdentifier: 
-  cameraNumber: 3
+  cameraNumber: 0

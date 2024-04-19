@@ -8,6 +8,7 @@ public class SetDefaultScriptableObjects : MonoBehaviour
     [SerializeField] private Mode mode;
     [SerializeField] private BoolObject hasTablet;
     [SerializeField] private BoolObject generatorOne;
+    [SerializeField] private BoolObject isSwapping;
 
     private void Awake()
     {
@@ -15,5 +16,6 @@ public class SetDefaultScriptableObjects : MonoBehaviour
       mode.mode3D = true;
       hasTablet.value = false;
       generatorOne.value = false;
+      isSwapping.value = true;
     }
 }
