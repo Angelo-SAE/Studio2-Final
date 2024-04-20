@@ -2256,6 +2256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 199339106}
   canOpen: 0
   needsKey: 0
@@ -2956,6 +2959,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 239393931}
   canOpen: 0
   needsKey: 0
@@ -12321,6 +12327,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   publisher: {fileID: 11400000, guid: f36e65ca6adee394ca9c3424fde4814e, type: 2}
   mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
+  hasTablet: {fileID: 0}
+  open: {fileID: 0}
+  close: {fileID: 0}
 --- !u!4 &298008998
 Transform:
   m_ObjectHideFlags: 0
@@ -12922,6 +12931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a148bbd4bfb7344c9a630bcf7c6ec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSolved: {fileID: 0}
   puzzleScript: {fileID: 1474927568}
   up: 1
   down: 0
@@ -13569,6 +13579,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 418388275}
   canOpen: 0
   needsKey: 0
@@ -14530,6 +14543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a148bbd4bfb7344c9a630bcf7c6ec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSolved: {fileID: 0}
   puzzleScript: {fileID: 1474927568}
   up: 0
   down: 1
@@ -23787,6 +23801,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 528562025}
   canOpen: 1
   needsKey: 0
@@ -23945,6 +23962,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 561167434}
   canOpen: 0
   needsKey: 0
@@ -25835,6 +25855,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 683994028}
   canOpen: 0
   needsKey: 0
@@ -27129,6 +27152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 815705588}
   canOpen: 1
   needsKey: 0
@@ -27246,6 +27272,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 822211659}
   canOpen: 0
   needsKey: 0
@@ -27342,6 +27371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 822808442}
   canOpen: 0
   needsKey: 0
@@ -36487,6 +36519,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 842158436}
   canOpen: 0
   needsKey: 0
@@ -36769,6 +36804,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 871132347}
   canOpen: 0
   needsKey: 0
@@ -55410,6 +55448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a148bbd4bfb7344c9a630bcf7c6ec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSolved: {fileID: 0}
   puzzleScript: {fileID: 1474927568}
   up: 1
   down: 0
@@ -64926,6 +64965,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 1029672593}
   canOpen: 0
   needsKey: 0
@@ -65352,6 +65394,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 1113567565}
   canOpen: 1
   needsKey: 0
@@ -65818,6 +65863,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 1192773644}
   canOpen: 1
   needsKey: 0
@@ -66041,6 +66089,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 1234732728}
   canOpen: 1
   needsKey: 0
@@ -66780,6 +66831,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 1258731699}
   canOpen: 0
   needsKey: 0
@@ -67641,9 +67695,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 1316939158}
-  audio: {fileID: 24100000, guid: 76389707d351bf04da721a1665a814ba, type: 2}
+  audioMixer: {fileID: 0}
   volume: {fileID: 11400000, guid: 4044719d678ea374bb94558ce6283724, type: 2}
-  audioMixer: MasterVolume
+  audioMixerName: 
 --- !u!114 &1316939158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68035,6 +68089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a148bbd4bfb7344c9a630bcf7c6ec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSolved: {fileID: 0}
   puzzleScript: {fileID: 1474927568}
   up: 0
   down: 1
@@ -68784,6 +68839,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 1382101928}
   canOpen: 1
   needsKey: 0
@@ -69027,6 +69085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a148bbd4bfb7344c9a630bcf7c6ec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSolved: {fileID: 0}
   puzzleScript: {fileID: 1474927568}
   up: 1
   down: 0
@@ -78784,6 +78843,10 @@ MonoBehaviour:
   endRenderer: {fileID: 1248852864}
   solvedMaterial: {fileID: 2100000, guid: fa07c4b1cadd1f348a09815246e08ca5, type: 2}
   unSolvedMaterial: {fileID: 2100000, guid: 047db7ccb07c9944b87ed0d80e1e75d7, type: 2}
+  isSolved: {fileID: 0}
+  onSolved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1474927569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79335,6 +79398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 1500526226}
   canOpen: 0
   needsKey: 0
@@ -80238,6 +80304,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 1583709173}
   canOpen: 0
   needsKey: 0
@@ -80402,6 +80471,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 1593737617}
   canOpen: 0
   needsKey: 0
@@ -80730,6 +80802,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 1615182893}
   canOpen: 0
   needsKey: 0
@@ -81842,6 +81917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a148bbd4bfb7344c9a630bcf7c6ec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSolved: {fileID: 0}
   puzzleScript: {fileID: 1474927568}
   up: 0
   down: 1
@@ -82271,6 +82347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a148bbd4bfb7344c9a630bcf7c6ec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSolved: {fileID: 0}
   puzzleScript: {fileID: 1474927568}
   up: 1
   down: 0
@@ -84683,6 +84760,98 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonNumber: 2
   safeCode: {fileID: 964256796}
+--- !u!1 &1962269358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1962269361}
+  - component: {fileID: 1962269360}
+  - component: {fileID: 1962269359}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1962269359
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962269358}
+  m_Enabled: 1
+--- !u!20 &1962269360
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962269358}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1962269361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962269358}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.5000153, y: 13.819377, z: 16.895702}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1973831228
 GameObject:
   m_ObjectHideFlags: 0
@@ -85338,6 +85507,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 2008095514}
   canOpen: 0
   needsKey: 0
@@ -85502,6 +85674,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCamera: {fileID: 11400000, guid: 963057fd7a3b7f149803a15c106521d9, type: 2}
   mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
+  hasTablet: {fileID: 0}
+  generatorOne: {fileID: 0}
+  isSwapping: {fileID: 0}
+  heldObject: {fileID: 0}
+  callOnAwake:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &2063644687
 Transform:
   m_ObjectHideFlags: 0
@@ -86611,6 +86790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a148bbd4bfb7344c9a630bcf7c6ec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSolved: {fileID: 0}
   puzzleScript: {fileID: 1474927568}
   up: 0
   down: 1
@@ -87356,6 +87536,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3f45783b36da489a51c3c76e814a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openAudio: {fileID: 0}
+  closeAudio: {fileID: 0}
+  doorLockedAudio: {fileID: 0}
   animator: {fileID: 6158775214828791001}
   canOpen: 1
   needsKey: 1
@@ -87463,3 +87646,4 @@ SceneRoots:
   - {fileID: 5598123191318438068}
   - {fileID: 2138200737}
   - {fileID: 1404383993}
+  - {fileID: 1962269361}
