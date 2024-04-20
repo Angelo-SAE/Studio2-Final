@@ -7,6 +7,7 @@ using TMPro;
 public class SetupChipSets : MonoBehaviour
 {
     [SerializeField] private int currentSet;
+    [SerializeField] private AudioSource setupSound, placeChipSound;
     [SerializeField] private GameObject[] pokerChips;
     [SerializeField] private PokerChipSet currentChipSet;
     [SerializeField] private PokerChipSet[] sets;
@@ -26,6 +27,7 @@ public class SetupChipSets : MonoBehaviour
 
     private void SpawnSet()
     {
+      setupSound.Play();
       if(previousSet)
       {
         DeletePreviousSet();
@@ -83,6 +85,7 @@ public class SetupChipSets : MonoBehaviour
 
     public void SpawnChip(int sectionNumber, int chip, int chipNumber)
     {
+      placeChipSound.Play();
       chips[sectionNumber].objectss[chip].objects[chipNumber].SetActive(true);
       updateScoreBoard.Invoke();
       if(CheckForSolved())

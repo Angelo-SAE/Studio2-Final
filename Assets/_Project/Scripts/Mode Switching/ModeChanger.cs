@@ -7,6 +7,7 @@ public class ModeChanger : MonoBehaviour
     [SerializeField] private Publisher publisher;
     [SerializeField] private Mode mode;
     [SerializeField] private BoolObject hasTablet;
+    [SerializeField] private AudioSource open, close;
     private bool isActive;
 
     private void Start()
@@ -28,11 +29,13 @@ public class ModeChanger : MonoBehaviour
       {
         if(mode.mode3D)
         {
+          open.Play();
           isActive = true;
           mode.mode3D = false;
           publisher.NotifySubscribers();
         } else if(!mode.mode3D && isActive)
         {
+          close.Play();
           isActive = false;
           mode.mode3D = true;
           publisher.NotifySubscribers();

@@ -11,15 +11,20 @@ public class ManageVolume : MonoBehaviour
     [SerializeField] private FloatObject volume;
     [SerializeField] private string audioMixerName;
 
-    private void Awake()
+    public void SetDefaultVolume()
     {
       volumeSlider.value = volume.value;
-      audioMixer.SetFloat(audioMixerName, volume.value);
+      audioMixer.SetFloat(audioMixerName, volumeSlider.value);
     }
 
     public void OnNotify()
     {
-      volume.value = volumeSlider.value;
-      audioMixer.SetFloat(audioMixerName, volumeSlider.value);
+      if(volumeSlider.value <= -20f)
+      {
+        volume.value = -80f;
+      } else {
+        volume.value = volumeSlider.value;
+      }
+      audioMixer.SetFloat(audioMixerName, volume.value);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DoorInteract : Interactable
 {
+    [SerializeField] private AudioSource openAudio, closeAudio;
     [SerializeField] private GameObject doorLockedAudio;
     [SerializeField] private Animator animator;
     [SerializeField] private bool canOpen;
@@ -76,9 +77,11 @@ public class DoorInteract : Interactable
       if(!open)
       {
         PlayAnimation("DoorOpen", true);
+        openAudio.Play();
       } else if(open)
       {
         PlayAnimation("DoorOpen", false);
+        closeAudio.Play();
       }
     }
 

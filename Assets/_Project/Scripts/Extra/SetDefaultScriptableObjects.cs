@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SetDefaultScriptableObjects : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class SetDefaultScriptableObjects : MonoBehaviour
     [SerializeField] private BoolObject generatorOne;
     [SerializeField] private BoolObject isSwapping;
     [SerializeField] private GameObjectObject heldObject;
+    [SerializeField] private UnityEvent callOnAwake;
 
     private void Awake()
     {
@@ -19,5 +21,6 @@ public class SetDefaultScriptableObjects : MonoBehaviour
       generatorOne.value = false;
       isSwapping.value = true;
       heldObject.value = null;
+      callOnAwake.Invoke();
     }
 }
