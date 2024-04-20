@@ -9,7 +9,7 @@ public class MouseLook : MonoBehaviour
     private float xRotation = 0f;
     [SerializeField] private Mode mode;
 
-    void Update()
+    private void FixedUpdate()
     {
       if(mode.mode3D)
       {
