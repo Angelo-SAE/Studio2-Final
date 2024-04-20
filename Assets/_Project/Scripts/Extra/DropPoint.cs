@@ -12,6 +12,8 @@ public class DropPoint : Interactable
     [SerializeField] private string tagToCheck;
     private GameObject currentObject;
 
+    public GameObject CurrentObject => currentObject;
+
     public override void Interact()
     {
       if(heldObject.value is not null && currentObject is null)
@@ -23,6 +25,12 @@ public class DropPoint : Interactable
       } else if(heldObject.value is null && currentObject is not null)
       {
         PickUpObject();
+      } else if(heldObject.value is not null && currentObject is not null)
+      {
+        if(heldObject.value.tag == tagToCheck)
+        {
+          SwapObject();
+        }
       }
     }
 
@@ -30,8 +38,7 @@ public class DropPoint : Interactable
     {
       currentObject = heldObject.value;
       heldObject.value.transform.SetParent(dropLocation.transform);
-      heldObject.value.transform.localPosition = Vector3.zero;
-      heldObject.value.transform.localRotation = Quaternion.Euler(Vector3.zero);
+      ResetTransform(heldObject.value);
       heldObject.value = null;
       extras.Invoke();
     }
@@ -40,9 +47,26 @@ public class DropPoint : Interactable
     {
       heldObject.value = currentObject;
       heldObject.value.transform.SetParent(holdLocation.transform);
-      heldObject.value.transform.localPosition = Vector3.zero;
-      heldObject.value.transform.localRotation = Quaternion.Euler(Vector3.zero);
+      ResetTransform(heldObject.value);
       currentObject = null;
+    }
+
+    private void SwapObject()
+    {
+      GameObject tempObj = heldObject.value;
+      heldObject.value = currentObject;
+      heldObject.value.transform.SetParent(holdLocation.transform);
+      ResetTransform(heldObject.value);
+      currentObject = tempObj;
+      currentObject.transform.SetParent(dropLocation.transform);
+      ResetTransform(currentObject);
+      extras.Invoke();
+    }
+
+    private void ResetTransform(GameObject resetObj)
+    {
+      resetObj.transform.localPosition = Vector3.zero;
+      resetObj.transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 
 }
