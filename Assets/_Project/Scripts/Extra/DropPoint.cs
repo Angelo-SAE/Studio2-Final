@@ -7,12 +7,20 @@ public class DropPoint : Interactable
 {
     [SerializeField] private GameObjectObject heldObject;
     [SerializeField] private GameObject dropLocation, holdLocation;
-    [SerializeField] private bool canPickBackUp;
+    [SerializeField] private bool canPickBackUp, startsWithObject;
     [SerializeField] private UnityEvent extras;
     [SerializeField] private string tagToCheck;
-    private GameObject currentObject;
+    [SerializeField] private GameObject currentObject;
 
     public GameObject CurrentObject => currentObject;
+
+    private void Start()
+    {
+      if(!startsWithObject)
+      {
+        currentObject = null;
+      }
+    }
 
     public override void Interact()
     {
@@ -49,6 +57,7 @@ public class DropPoint : Interactable
       heldObject.value.transform.SetParent(holdLocation.transform);
       ResetTransform(heldObject.value);
       currentObject = null;
+      extras.Invoke();
     }
 
     private void SwapObject()

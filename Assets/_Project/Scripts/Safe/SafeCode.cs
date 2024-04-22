@@ -8,6 +8,7 @@ public class SafeCode : MonoBehaviour
     [SerializeField] private List<int> safeCode;
     [SerializeField] private TMP_Text codeText;
     [SerializeField] private Animator safeDoorAnimator;
+    [SerializeField] private AudioSource safeUnlocked;
     private bool unLocked;
     private List<int> currentCode;
 
@@ -26,6 +27,7 @@ public class SafeCode : MonoBehaviour
           unLocked = CheckForCorrectCode();
           if(unLocked)
           {
+            safeUnlocked.Play();
             codeText.text = "Unlocked";
             safeDoorAnimator.SetBool("SafeOpen", true);
           } else {

@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LockUnlockCursor : MonoBehaviour
 {
 
     [SerializeField] private Mode mode;
+    [SerializeField] private UnityEvent enter2D;
+
 
     public void OnNotify()
     {
@@ -19,6 +22,7 @@ public class LockUnlockCursor : MonoBehaviour
         LockCursor();
       } else if(!mode.mode3D)
       {
+        enter2D.Invoke();
         UnlockCursor();
       }
     }

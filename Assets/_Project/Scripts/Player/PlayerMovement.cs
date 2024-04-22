@@ -101,4 +101,9 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    public void ResetPlayerVelocity()
+    {
+      rb.velocity = Vector3.zero;
+    }
 }

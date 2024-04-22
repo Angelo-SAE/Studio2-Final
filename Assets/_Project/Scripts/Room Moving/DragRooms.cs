@@ -10,6 +10,7 @@ public class DragRooms : MonoBehaviour
     [SerializeField] private RoomSpots roomSpots;
     [SerializeField] private Camera[] cameras;
     [SerializeField] private Mode mode;
+    [SerializeField] private AudioSources[] dropRoomSound;
     private GameObject draggableObject;
     private Vector2 mousePosition, mouseClickPosition, origionalPosition;
 
@@ -87,14 +88,17 @@ public class DragRooms : MonoBehaviour
       if(roomSpots.rooms[(int)closest.x, (int)closest.y] is null)
       {
         roomSpots.rooms[(int)origionalPosition.x, (int)origionalPosition.y] = null;
+        dropRoomSound[(int)closest.x].y[(int)closest.y].Play();
         roomSpots.rooms[(int)closest.x, (int)closest.y] = draggableObject;
         draggableObject.transform.position = new Vector3(closest.x, closest.y, draggableObject.transform.position.z);
       } else {
         draggableObject.transform.position = new Vector3(origionalPosition.x, origionalPosition.y, draggableObject.transform.position.z);
       }
     }
+}
 
-
-
-
+[System.Serializable]
+public struct AudioSources
+{
+  public AudioSource[] y;
 }
