@@ -6,7 +6,7 @@ public class DisableEnable : MonoBehaviour
 {
     public void OnNotify()
     {
-      if(gameObject.activeInHierarchy)
+      if(gameObject.activeSelf)
       {
         gameObject.SetActive(false);
       } else {

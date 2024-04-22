@@ -18,8 +18,6 @@ public class PausePanel : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
             if (optionsMenu.activeSelf)
             {
                 // If the options menu is active dont open menu
@@ -34,7 +32,6 @@ public class PausePanel : MonoBehaviour
             {
                 PauseGame();
             }
-        }
     }
 
     public void PauseGame()
