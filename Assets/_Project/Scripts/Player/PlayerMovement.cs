@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     
 
     Rigidbody rb;
-    private bool isGrounded;
+    
     public Camera cam;
     public bool isForcedDown;
 
@@ -31,19 +31,24 @@ public class PlayerMovement : MonoBehaviour
         
         moveForward = Input.GetAxis("Vertical");
         moveSideways = Input.GetAxis("Horizontal");
-        
+
+        /* if (mode.mode3D)
+        {
+            MovePlayer();
+        }*/
+
 
         SetPlayerPosition();
     }
 
-    void FixedUpdate()
+     void FixedUpdate()
     {
         if (mode.mode3D)
         {
             MovePlayer();
         }
 
-    }
+    } 
 
 
 
