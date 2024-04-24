@@ -9,23 +9,23 @@ public class MouseLook : MonoBehaviour
     private float xRotation = 0f;
     [SerializeField] private Mode mode;
 
-    private void FixedUpdate()
+    private void Update()
     {
-      if(mode.mode3D)
-      {
-        RotateCamera();
-      }
-    }
+        if (mode.mode3D)
+        {
+            RotateCamera();
+        }
 
+    }
     private void RotateCamera()
     {
-      float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity.value * Time.deltaTime;
-      float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity.value * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity.value;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity.value;
 
-      xRotation -= mouseY;
-      xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-      transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-      playerBody.Rotate(Vector3.up * mouseX);
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        playerBody.Rotate(Vector3.up * mouseX);
     }
 }
