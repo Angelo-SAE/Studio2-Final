@@ -20,6 +20,6 @@ public class SensitivitySlider : MonoBehaviour
 
     private void ChangeSensitivity()
     {
-      sensitivity.value = sensitivitySlider.value * 0.02f;
+      sensitivity.value = sensitivitySlider.value;
     }
 }

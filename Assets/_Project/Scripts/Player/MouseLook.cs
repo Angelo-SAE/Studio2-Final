@@ -19,8 +19,8 @@ public class MouseLook : MonoBehaviour
     }
     private void RotateCamera()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity.value;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity.value;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity.value * 0.02f;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity.value * 0.02f;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
