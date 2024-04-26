@@ -16,6 +16,11 @@ public class PokerChipSet : ScriptableObject
     public int[] sectionFive = new int[3];
     public int[] sectionSix = new int[3];
 
+    private void Awake()
+    {
+      OnValidate();
+    }
+
     private void OnValidate()
     {
       sectionOne = CheckForCorrectValues(0, sectionOne);

@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DraggableObject : MonoBehaviour
 {
+    [SerializeField] private UnityEvent onPickup, onDrop;
+
     private bool canDrag;
     public bool CanDrag
     {
@@ -14,5 +17,15 @@ public class DraggableObject : MonoBehaviour
     private void Start()
     {
       canDrag = true;
+    }
+
+    public void OnPickup()
+    {
+      onPickup.Invoke();
+    }
+
+    public void OnDrop()
+    {
+      onDrop.Invoke();
     }
 }

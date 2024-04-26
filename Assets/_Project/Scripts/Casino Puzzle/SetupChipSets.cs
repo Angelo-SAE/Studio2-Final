@@ -28,12 +28,14 @@ public class SetupChipSets : MonoBehaviour
     private void SpawnSet()
     {
       setupSound.Play();
-      if(previousSet)
+      if (previousSet)
       {
-        DeletePreviousSet();
-      } else {
-        previousSet = true;
-        CreateNewSet();
+          DeletePreviousSet();
+      }
+      else
+      {
+          previousSet = true;
+          CreateNewSet();
       }
     }
 
@@ -53,9 +55,9 @@ public class SetupChipSets : MonoBehaviour
 
     private void SetBaseChips()
     {
-      for(int a = 0; a < 3; a++)
+      for (int a = 0; a < 3; a++)
       {
-        for(int b = 0; b < 3; b++)
+        for (int b = 0; b < 3; b++)
         {
           SpawnChips(a, b);
         }
@@ -65,21 +67,21 @@ public class SetupChipSets : MonoBehaviour
 
     private void SpawnChips(int sectionNumber, int chip)
     {
-      for(int a = 0; a < sets[currentSet].chipSet[sectionNumber][chip]; a++)
+      for (int a = 0; a < sets[currentSet].chipSet[sectionNumber][chip]; a++)
       {
-        switch(chip)
+        switch (chip)
         {
-          case(0):
+          case (0):
           currentChipSet.sectionValues[sectionNumber] += 1;
           break;
-          case(1):
+          case (1):
           currentChipSet.sectionValues[sectionNumber] += 5;
           break;
-          case(2):
+          case (2):
           currentChipSet.sectionValues[sectionNumber] += 25;
           break;
         }
-        chips[sectionNumber].objectss[chip].objects[a].SetActive(true);
+       chips[sectionNumber].objectss[chip].objects[a].SetActive(true);
       }
     }
 
@@ -88,7 +90,7 @@ public class SetupChipSets : MonoBehaviour
       placeChipSound.Play();
       chips[sectionNumber].objectss[chip].objects[chipNumber].SetActive(true);
       updateScoreBoard.Invoke();
-      if(CheckForSolved())
+      if (CheckForSolved())
       {
         StartCoroutine(SpawnNextSet());
       }
@@ -96,25 +98,25 @@ public class SetupChipSets : MonoBehaviour
 
     private bool CheckForSolved()
     {
-      for(int a = 3; a < 6; a++)
+      for (int a = 3; a < 6; a++)
       {
-        if(currentChipSet.sectionValues[a] != sets[currentSet].sectionValues[a])
-        {
-          return false;
-        }
+          if (currentChipSet.sectionValues[a] != sets[currentSet].sectionValues[a])
+          {
+            return false;
+          }
       }
       return true;
     }
 
     private void FlushCurrentChipSet()
     {
-      for(int a = 0; a < 6; a++)
+      for (int a = 0; a < 6; a++)
       {
-        for(int b = 0; b < 3; b++)
+        for (int b = 0; b < 3; b++)
         {
-          for(int c = 0; c < 5; c++)
+          for (int c = 0; c < 5; c++)
           {
-            if(chips[a].objectss[b].objects[c].activeSelf)
+            if (chips[a].objectss[b].objects[c].activeSelf)
             {
               chips[a].objectss[b].objects[c].SetActive(false);
             }
@@ -128,75 +130,79 @@ public class SetupChipSets : MonoBehaviour
 
     public void FlushCurrentChipSetSection(int section)
     {
-      for(int a = 0; a < 3; a++)
-      {
-        for(int b = 0; b < 5; b++)
+        for (int a = 0; a < 3; a++)
         {
-          if(chips[section].objectss[a].objects[b].activeSelf)
-          {
-            chips[section].objectss[a].objects[b].SetActive(false);
-          }
+            for (int b = 0; b < 5; b++)
+            {
+                if (chips[section].objectss[a].objects[b].activeSelf)
+                {
+                    chips[section].objectss[a].objects[b].SetActive(false);
+                }
+            }
+            currentChipSet.sectionValues[section] = 0;
+            currentChipSet.chipSet[section][a] = 0;
         }
-        currentChipSet.sectionValues[section] = 0;
-        currentChipSet.chipSet[section][a] = 0;
-      }
-      updateScoreBoard.Invoke();
+        updateScoreBoard.Invoke();
     }
 
     private IEnumerator SpawnNextSet()
     {
-      isSwapping.value = true;
-      if(started)
-      {
-        currentSet++;
-        if(currentSet < sets.Length)
+        isSwapping.value = true;
+        if (started)
         {
-          swapperAnimation.SetTrigger("Swap");
-          displayText.text = "Loading Next Set";
-          disableScoreBoard.Invoke();
-          enableTextBoard.Invoke();
-          yield return new WaitForSeconds(2f);
-          SpawnSet();
-          yield return new WaitForSeconds(2f);
-          disableTextBoard.Invoke();
-          enableScoreBoard.Invoke();
-          isSwapping.value = false;
-        } else {
-          swapperAnimation.SetTrigger("Swap");
-          displayText.text = "!!!You Won!!!";
-          disableScoreBoard.Invoke();
-          enableTextBoard.Invoke();
-          yield return new WaitForSeconds(2f);
-          FlushCurrentChipSet();
-          enableDataShard.Invoke();
-          yield return new WaitForSeconds(2f);
-          displayText.text = "Take It";
+            currentSet++;
+            if (currentSet < sets.Length)
+            {
+                swapperAnimation.SetTrigger("Swap");
+                displayText.text = "Loading Next Set";
+                disableScoreBoard.Invoke();
+                enableTextBoard.Invoke();
+                yield return new WaitForSeconds(2f);
+                SpawnSet();
+                yield return new WaitForSeconds(2f);
+                disableTextBoard.Invoke();
+                enableScoreBoard.Invoke();
+                isSwapping.value = false;
+            }
+            else
+            {
+                swapperAnimation.SetTrigger("Swap");
+                displayText.text = "!!!You Won!!!";
+                disableScoreBoard.Invoke();
+                enableTextBoard.Invoke();
+                yield return new WaitForSeconds(2f);
+                FlushCurrentChipSet();
+                enableDataShard.Invoke();
+                yield return new WaitForSeconds(2f);
+                displayText.text = "Take It";
+            }
         }
-      } else {
-        swapperAnimation.SetTrigger("Swap");
-        displayText.text = "Loading First Set";
-        disableScoreBoard.Invoke();
-        enableTextBoard.Invoke();
-        yield return new WaitForSeconds(2f);
-        disableStartButton.Invoke();
-        SpawnSet();
-        yield return new WaitForSeconds(2f);
-        disableTextBoard.Invoke();
-        enableScoreBoard.Invoke();
-        started = true;
-        isSwapping.value = false;
-      }
+        else
+        {
+            swapperAnimation.SetTrigger("Swap");
+            displayText.text = "Loading First Set";
+            disableScoreBoard.Invoke();
+            enableTextBoard.Invoke();
+            yield return new WaitForSeconds(2f);
+            disableStartButton.Invoke();
+            SpawnSet();
+            yield return new WaitForSeconds(2f);
+            disableTextBoard.Invoke();
+            enableScoreBoard.Invoke();
+            started = true;
+            isSwapping.value = false;
+        }
     }
 }
 
 [System.Serializable]
 public struct GameObjects
 {
-  public GameObject[] objects;
+    public GameObject[] objects;
 }
 
 [System.Serializable]
 public struct GameObjectss
 {
-  public GameObjects[] objectss;
+    public GameObjects[] objectss;
 }

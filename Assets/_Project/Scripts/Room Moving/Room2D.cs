@@ -9,7 +9,7 @@ public class Room2D : MonoBehaviour
     [SerializeField] private Current2D currentCamera;
     [SerializeField] private GameObject room;
     [SerializeField] private Collider2D col2D;
-    [SerializeField] private SpriteRenderer spirte;
+    [SerializeField] private GameObject roomSpirte;
     [SerializeField] private Mode mode;
     private bool isActive;
     private bool roomUpdate;
@@ -34,12 +34,12 @@ public class Room2D : MonoBehaviour
       if(currentCamera.cameraNumber >= activeNumber && isActive)
       {
         col2D.enabled = true;
-        spirte.enabled = true;
+        roomSpirte.SetActive(true);
         isActive = false;
       } else if(currentCamera.cameraNumber < activeNumber && !isActive)
       {
         col2D.enabled = false;
-        spirte.enabled = false;
+        roomSpirte.SetActive(false);
         isActive = true;
       }
     }

@@ -11,6 +11,7 @@ public class DragRooms : MonoBehaviour
     [SerializeField] private Camera[] cameras;
     [SerializeField] private Mode mode;
     [SerializeField] private AudioSources[] dropRoomSound;
+    private DraggableObject dragObject;
     private GameObject draggableObject;
     private Vector2 mousePosition, mouseClickPosition, origionalPosition;
 
@@ -43,8 +44,10 @@ public class DragRooms : MonoBehaviour
         {
           if(targetObject.tag == "Draggable")
           {
-            if(targetObject.gameObject.GetComponent<DraggableObject>().CanDrag)
+            dragObject = targetObject.gameObject.GetComponent<DraggableObject>();
+            if(dragObject.CanDrag)
             {
+              dragObject.OnPickup();
               draggableObject = targetObject.transform.gameObject;
               mouseClickPosition = mousePosition;
               origionalPosition = new Vector2(draggableObject.transform.position.x, draggableObject.transform.position.y);
@@ -56,6 +59,7 @@ public class DragRooms : MonoBehaviour
       {
         if(draggableObject != null)
         {
+          dragObject.OnDrop();
           SetPositionOfObject();
           draggableObject = null;
         }
