@@ -10,14 +10,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpFallForce;
     [SerializeField] private Mode mode;
     [SerializeField] private PlayerPosition playerPosition;
+    [SerializeField] private Vector3Object playerRotation;
 
     private float moveForward;
     private float moveSideways;
-    
-    
+
+
 
     Rigidbody rb;
-    
+
     public Camera cam;
     public bool isForcedDown;
 
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
+
         moveForward = Input.GetAxis("Vertical");
         moveSideways = Input.GetAxis("Horizontal");
 
@@ -48,13 +49,14 @@ public class PlayerMovement : MonoBehaviour
             MovePlayer();
         }
 
-    } 
+    }
 
 
 
     private void SetPlayerPosition()
     {
       playerPosition.position = transform.position;
+      playerRotation.value = transform.eulerAngles;
     }
 
     private void MovePlayer()
@@ -69,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movement = (cameraForward * moveForward + cameraRight * moveSideways) * moveSpeed;
         rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
 
-        
+
     }
     public void ResetPlayerVelocity()
     {

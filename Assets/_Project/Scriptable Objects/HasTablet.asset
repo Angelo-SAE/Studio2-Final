@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672b9f0614f70a2459ceabaa87c21984, type: 3}
   m_Name: HasTablet
   m_EditorClassIdentifier: 
-  value: 0
+  value: 1
