@@ -10,11 +10,11 @@ public class SpawnDoors : MonoBehaviour
     [SerializeField] private int roomsX, roomsY;
     [SerializeField] private GameObject doorHolder;
     [SerializeField] private Mode mode;
-    [SerializeField] private UnityEvent onNotify;
+    [SerializeField] private UnityEvent onNotify, solvedMap;
     private bool[,] doorSpawnedNS;
     private bool[,] doorSpawnedEW;
     private List<int>[,] doorSpots;
-    private int ok = 0;
+    private int ok = 0, unusedDoorCounter = 1;
 
     private void Awake()
     {
@@ -25,11 +25,21 @@ public class SpawnDoors : MonoBehaviour
     {
       if(mode.mode3D && ok > 0)
       {
+        unusedDoorCounter = 0;
         StoreDoorSpots();
         CheckRooms();
         onNotify.Invoke();
+        CheckForWin();
       } else {
         ok++;
+      }
+    }
+
+    private void CheckForWin()
+    {
+      if(unusedDoorCounter == 0)
+      {
+        solvedMap.Invoke();
       }
     }
 
@@ -80,11 +90,13 @@ public class SpawnDoors : MonoBehaviour
             GameObject currentdoor = Instantiate(doorNS, new Vector3(doorNS.transform.position.x + a * 15f, doorNS.transform.position.y, doorNS.transform.position.z + 7.5f + b * 15f), doorNS.transform.rotation, doorHolder.transform);
             currentdoor.GetComponent<DoorInteract>().CanOpen = false;
             doorSpawnedNS[a,b + 1] = true;
+            unusedDoorCounter++;
           }
         } else {
           GameObject currentdoor = Instantiate(doorNS, new Vector3(doorNS.transform.position.x + a * 15f, doorNS.transform.position.y, doorNS.transform.position.z + 7.5f + b * 15f), doorNS.transform.rotation, doorHolder.transform);
           currentdoor.GetComponent<DoorInteract>().CanOpen = false;
           doorSpawnedNS[a,b + 1] = true;
+          unusedDoorCounter++;
         }
       }
       if(doorSpots[a,b].Contains(1) && !doorSpawnedEW[a + 1,b])
@@ -99,11 +111,13 @@ public class SpawnDoors : MonoBehaviour
             GameObject currentdoor = Instantiate(doorEW, new Vector3(doorEW.transform.position.x + 7.5f + a * 15f, doorEW.transform.position.y, doorEW.transform.position.z + b * 15f), doorEW.transform.rotation, doorHolder.transform);
             currentdoor.GetComponent<DoorInteract>().CanOpen = false;
             doorSpawnedEW[a + 1,b] = true;
+            unusedDoorCounter++;
           }
         } else {
           GameObject currentdoor = Instantiate(doorEW, new Vector3(doorEW.transform.position.x + 7.5f + a * 15f, doorEW.transform.position.y, doorEW.transform.position.z + b * 15f), doorEW.transform.rotation, doorHolder.transform);
           currentdoor.GetComponent<DoorInteract>().CanOpen = false;
           doorSpawnedEW[a + 1,b] = true;
+          unusedDoorCounter++;
         }
       }
       if(doorSpots[a,b].Contains(2) && !doorSpawnedNS[a,b])
@@ -118,11 +132,13 @@ public class SpawnDoors : MonoBehaviour
             GameObject currentdoor = Instantiate(doorNS, new Vector3(doorNS.transform.position.x + a * 15f, doorNS.transform.position.y, doorNS.transform.position.z - 7.5f + b * 15f), doorNS.transform.rotation, doorHolder.transform);
             currentdoor.GetComponent<DoorInteract>().CanOpen = false;
             doorSpawnedNS[a,b] = true;
+            unusedDoorCounter++;
           }
         } else {
           GameObject currentdoor = Instantiate(doorNS, new Vector3(doorNS.transform.position.x + a * 15f, doorNS.transform.position.y, doorNS.transform.position.z - 7.5f + b * 15f), doorNS.transform.rotation, doorHolder.transform);
           currentdoor.GetComponent<DoorInteract>().CanOpen = false;
           doorSpawnedNS[a,b] = true;
+          unusedDoorCounter++;
         }
       }
       if(doorSpots[a,b].Contains(3) && !doorSpawnedEW[a,b])
@@ -137,11 +153,13 @@ public class SpawnDoors : MonoBehaviour
             GameObject currentdoor = Instantiate(doorEW, new Vector3(doorEW.transform.position.x - 7.5f + a * 15f, doorEW.transform.position.y, doorEW.transform.position.z + b * 15f), doorEW.transform.rotation, doorHolder.transform);
             currentdoor.GetComponent<DoorInteract>().CanOpen = false;
             doorSpawnedEW[a,b] = true;
+            unusedDoorCounter++;
           }
         } else {
           GameObject currentdoor = Instantiate(doorEW, new Vector3(doorEW.transform.position.x - 7.5f + a * 15f, doorEW.transform.position.y, doorEW.transform.position.z + b * 15f), doorEW.transform.rotation, doorHolder.transform);
           currentdoor.GetComponent<DoorInteract>().CanOpen = false;
           doorSpawnedEW[a,b] = true;
+          unusedDoorCounter++;
         }
       }
     }

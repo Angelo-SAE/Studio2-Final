@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b8819e47b51ca4e95bb3cb6ce58c95, type: 3}
   m_Name: Current Set
   m_EditorClassIdentifier: 
+  sectionValues: 000000000000000000000000000000000000000000000000
   sectionOne: 000000000000000000000000
   sectionTwo: 000000000000000000000000
   sectionThree: 000000000000000000000000
