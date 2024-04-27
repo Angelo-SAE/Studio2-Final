@@ -1203,6 +1203,7 @@ MonoBehaviour:
   jumpFallForce: 10
   mode: {fileID: 11400000, guid: ea57abe4215d8f74c9c64d9e26063faf, type: 2}
   playerPosition: {fileID: 11400000, guid: b094ae059720bda47b2af899530b6d95, type: 2}
+  playerRotation: {fileID: 0}
   cam: {fileID: 465770281}
   isForcedDown: 0
 --- !u!4 &532357648
