@@ -8,6 +8,8 @@ TagManager:
   - Draggable
   - Candle
   - Pot
+  - Drill
+  - GiftCard
   layers:
   - Default
   - TransparentFX

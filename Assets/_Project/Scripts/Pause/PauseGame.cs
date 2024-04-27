@@ -69,6 +69,12 @@ public class PauseGame : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void GoToEnd()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(2);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
