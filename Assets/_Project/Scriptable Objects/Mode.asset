@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0daf81a61d1d2d0408422ba1b97cc6e4, type: 3}
   m_Name: Mode
   m_EditorClassIdentifier: 
-  mode3D: 1
+  mode3D: 0

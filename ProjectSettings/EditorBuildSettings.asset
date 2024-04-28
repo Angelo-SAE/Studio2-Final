@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/MainGame.unity
     guid: f027bda208583c749ac26e65752e0906
   - enabled: 1
+    path: Assets/_Project/Scenes/EscapeScene.unity
+    guid: 70b50bce1cf5b3646ae7c0075ab89fcb
+  - enabled: 1
     path: Assets/_Project/Scenes/EndScene.unity
     guid: 321129eed5fb9764baf86ebfdb0f8f9f
   m_configObjects: {}
